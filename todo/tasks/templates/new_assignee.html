@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Assignee</title>
+</head>
+<body>
+    <h1>Create New Assignee</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+    <p><a href="{% url 'task_list' %}">Back to task list</a></p>
+</body>
+</html>

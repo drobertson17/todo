@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task List</title>
+</head>
+<body>
+    <h1>Task List</h1>
+    <a href="{% url 'new_task' %}">
+        <button>Add New Task</button>
+    </a>
+    <a href="{% url 'new_assignee' %}">
+        <button>Add New Assignee</button>
+    </a>
+    <a href="{% url 'new_status' %}">
+        <button>Add New Status</button>
+    </a>
+    <ul>
+    {% for task in tasks %}
+        <li>
+            <strong>{{ task.name }}</strong><br>
+            Category: {{ task.category.name|default:"Unassigned" }}<br>
+            Assigned to: {{ task.assigned_to.name|default:"Unassigned" }}<br>
+            Priority: {{ task.priority }}<br>
+            Status: {{ task.status.name|default:"Backlog" }}<br>
+            Description: {{ task.description }}
+        </li>
+        <hr>
+    {% empty %}
+        <p>No tasks found.</p>
+    {% endfor %}
+    </ul>
+</body>
+</html>

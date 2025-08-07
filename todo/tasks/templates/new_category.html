@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Category</title>
+</head>
+<body>
+    <h1>Create New Category</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save Category</button>
+    </form>
+    <p><a href="{% url 'new_task' %}">Back to new_task</a></p>
+</body>
+</html>
