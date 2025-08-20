@@ -205,7 +205,7 @@
                                 {% if task.due_date %}
                                     <i class="fas fa-calendar-alt me-1"></i>
                                     {% if task.is_overdue %}
-                                        Overdue by {{ task.days_until_due|abs }} days
+                                        Overdue by {{ task.days_until_due_abs }} days
                                     {% else %}
                                         Due in {{ task.days_until_due }} days
                                     {% endif %}

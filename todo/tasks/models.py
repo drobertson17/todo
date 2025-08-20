@@ -96,6 +96,13 @@ class Task(models.Model):
             return delta.days
         return None
     
+    @property
+    def days_until_due_abs(self):
+        if self.due_date:
+            delta = self.due_date - timezone.now()
+            return abs(delta.days)
+        return None
+    
     def mark_completed(self):
         if self.status and self.status.is_completed:
             self.completed_at = timezone.now()
